@@ -123,8 +123,8 @@ function articleMaker(title,date,firstParagraph,secondParagraph,thirdParagraph){
   const paragraph1 = document.createElement('p');
   const paragraph2 = document.createElement('p');
   const paragraph3 = document.createElement('p');
-  const expand = document.createElement('span');
-
+  const articleButton = document.createElement('span');
+  const expand = 'assets/menu.png';
   // appending 
 
   article.appendChild(h2);
@@ -132,18 +132,18 @@ function articleMaker(title,date,firstParagraph,secondParagraph,thirdParagraph){
   article.appendChild(paragraph1);
   article.appendChild(paragraph2);
   article.appendChild(paragraph3);
-  articleButton.appendChild(expand);
+  article.appendChild(articleButton);
 
   // styling
 
-  article.classList('article');
-  date.classList.add('date');
+  article.classList.add('article');
+  articleDate.classList.add('date');
   articleButton.classList.add('expandButton');
 
   //  programmatically update content
 
-const articleButton = 'assets/menu.png';
-expandButton.textContent = expand;
+
+articleButton.textContent = expand;
 h2.textContent = title;
 articleDate.texContent = date;
 paragraph1.textContent = firstParagraph;
@@ -153,8 +153,7 @@ paragraph3.textContent = thirdParagraph;
 
 // event listener for expandfButton
 
-expandButton.addEventListener('click', (e) => {
-  aritcle.classList.toggle('articleOpen');
+  articleButton.addEventListener('click', (e) => {
   article.classList.toggle('toggle-on');
   article.classList.toggle('toggle-off');
   
@@ -163,8 +162,7 @@ expandButton.addEventListener('click', (e) => {
 return article;
 
 };
-
-
+const articleData = document.querySelector('.articles')
 data.forEach((obj) => {
-  data.appendChild(articleMaker(obj.title, obj.date, obj.firstParagraph, obj.secondParagraph, obj.thirdParagraph));
+  articleData.appendChild(articleMaker(obj.title, obj.date, obj.firstParagraph, obj.secondParagraph, obj.thirdParagraph));
 });
