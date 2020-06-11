@@ -111,3 +111,60 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+function articleMaker(title,date,firstParagraph,secondParagraph,thirdParagraph){
+
+  // creating 
+
+
+  const article = document.createElement('div');
+  const h2 = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const paragraph1 = document.createElement('p');
+  const paragraph2 = document.createElement('p');
+  const paragraph3 = document.createElement('p');
+  const expand = document.createElement('span');
+
+  // appending 
+
+  article.appendChild(h2);
+  article.appendChild(articleDate);
+  article.appendChild(paragraph1);
+  article.appendChild(paragraph2);
+  article.appendChild(paragraph3);
+  articleButton.appendChild(expand);
+
+  // styling
+
+  article.classList('article');
+  date.classList.add('date');
+  articleButton.classList.add('expandButton');
+
+  //  programmatically update content
+
+const articleButton = 'assets/menu.png';
+expandButton.textContent = expand;
+h2.textContent = title;
+articleDate.texContent = date;
+paragraph1.textContent = firstParagraph;
+paragraph2.textContent = secondParagraph;
+paragraph3.textContent = thirdParagraph;
+
+
+// event listener for expandfButton
+
+expandButton.addEventListener('click', (e) => {
+  aritcle.classList.toggle('articleOpen');
+  article.classList.toggle('toggle-on');
+  article.classList.toggle('toggle-off');
+  
+});
+
+return article;
+
+};
+
+
+data.forEach((obj) => {
+  data.appendChild(articleMaker(obj.title, obj.date, obj.firstParagraph, obj.secondParagraph, obj.thirdParagraph));
+});
